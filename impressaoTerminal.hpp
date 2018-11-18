@@ -5,6 +5,8 @@
 #include <string.h>
 #include "tabuleiro.h"
 
+void impressao(Tabuleiro, bool);
+
 void impressao(Tabuleiro t, bool printar_caracteres_especiais)
 {
 	if(!printar_caracteres_especiais)
@@ -53,6 +55,7 @@ void impressao(Tabuleiro t, bool printar_caracteres_especiais)
 					case 'R':				
 						std::cout << " \u265B" << ' ';
 						break;
+					default: break;
 				}			
 			}
 
@@ -78,7 +81,8 @@ void impressao(Tabuleiro t, bool printar_caracteres_especiais)
 						break;					
 					case 'R':				
 						std::cout << " \u2655" << ' ';
-						break;								
+						break;	
+					default: break;							
 				}			
 			}
 			else std::cout << " - ";	

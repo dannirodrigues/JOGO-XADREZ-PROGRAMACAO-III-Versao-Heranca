@@ -138,7 +138,7 @@ T DataFileReader::readColumn( MTci &C ){
     aborta(msg);
   }
   T v;
-  stringstream ss( _lineContent[C-1] );
+  stringstream ss( _lineContent[ std::size_t(C-1) ] );
   ss >> v;
   return v;
 }

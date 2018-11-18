@@ -18,6 +18,8 @@ public:
 	//incializando pecas no tabuleiro
 	Tabuleiro();
 
+	bool xeque(int , int );
+
 	std::string getMatriz(int lin, int col) {return _matriz[lin][col];}
 
 	void setMatriz(int lin, int col, const std::string& pec) {_matriz[lin][col] = pec;}
@@ -42,6 +44,7 @@ public:
 				return 6;
 			case 'h':
 				return 7;
+			default: return -1;
 		}
 
 		return -1;
@@ -67,6 +70,7 @@ public:
 				return 1;
 			case '8':
 				return 0;
+			default : return -1;
 		}
 
 		return -1;
@@ -86,6 +90,8 @@ public:
 				return std::string("D");
 			case 'R':
 				return std::string("R");
+				
+			default : return std::string ("erro");
 		}
 
 		return std::string("erro");
@@ -173,9 +179,7 @@ public:
 
 	bool roque(int, int, char);
 
-	bool xeque_RP(int n, int m);
-
-	bool xeque_RB( int n , int m);
+	
 
 	bool jogada(const std::string& nome_peca, int pos_i_final, int pos_j_final, std::string jogada);
 

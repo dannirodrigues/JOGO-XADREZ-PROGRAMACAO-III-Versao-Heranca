@@ -35,11 +35,11 @@ int main( int argc, char *argv[] )
 		if( argc!=2 ) aborta( "Numero de parametros de entrada errado!" );
 		std::vector<string> jogadas_times;
 		carrega_dados(jogadas_times, argv);
-
-		for(unsigned int i=0; i<jogadas_times.size(); i++)
+		int tamanho = jogadas_times.size();
+		for(int i=0; i< tamanho; i++)
 		{
 			impressao(t, printar_caracteres_especiais);
-			decodifica_main(t, jogadas_times[i], printar_caracteres_especiais, i);
+			decodifica_main(t, jogadas_times[std::size_t(i)], printar_caracteres_especiais, i);
 		}
 		impressao(t, printar_caracteres_especiais);
 	}
@@ -195,6 +195,8 @@ int switch_para_letra(char letra)
 			return 6;
 		case 'h':
 			return 7;
+		default:
+			return -1;
 	}
 
 	return -1;
@@ -220,6 +222,7 @@ int switch_para_numero(char numero)
 			return 1;
 		case '8':
 			return 0;
+		default: return  -1;
 	}
 
 	return -1;
@@ -239,7 +242,8 @@ std::string switch_char_string(char letra)
 			return std::string("D");
 		case 'R':
 			return std::string("R");
+		default : return std::string ("erro");
 	}
 
-	return std::string("erro");;
+	return std::string("erro");
 }
